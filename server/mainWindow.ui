@@ -40,16 +40,6 @@
      <string>select image</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textToSend">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>220</y>
-      <width>291</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="sndBtn">
     <property name="geometry">
      <rect>
@@ -84,6 +74,16 @@
     </property>
     <property name="text">
      <string>Start Server</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="textToSend">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>250</y>
+      <width>281</width>
+      <height>20</height>
+     </rect>
     </property>
    </widget>
   </widget>

@@ -15,7 +15,7 @@ class Controller(Ui_MainWindow):
     '''Constructor'''
     def __init__(self):
         super().__init__() #initialising the super class
-        self.model = Model('127.0.0.1',1236)
+        self.model = Model('127.0.0.1',5000)
         self.threadpool = QThreadPool() #initialising a seperate thread for starting server in the background
 
     '''SetUp the UI of the super class, 
@@ -28,14 +28,15 @@ class Controller(Ui_MainWindow):
         # self.setImgBtn.clicked.connect(self.SelectImage)    
 
     def BtnStartClicked(self):
-        serverTh = ServerThread(self.model.s) # object of the serverThread class
+        self.serverTh = ServerThread(self.model.s) # object of the serverThread class
         self.model.startServer()
-        self.threadpool.start(serverTh) #starting the thread
+        self.threadpool.start(self.serverTh) #starting the thread
         print("Start Button Clicked")
         print(self.model.serverStatus)
         self.startServer.setDisabled(True)
 
     def BtnSendClicked(self):
+        self.serverTh.sendMssg(self.textToSend.text())
         print("Send Button Clicked")
         
 
